@@ -1,6 +1,8 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using dnapp.Models;
+using System.Net;
+using System.Net.Sockets;
 
 namespace dnapp.Controllers;
 
@@ -13,9 +15,13 @@ public class HomeController : Controller
         _logger = logger;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> IndexAsync()
     {
-        return View();
+        var hostName = Dns.GetHostName();
+        var ip = Dns.GetHostEntry(hostName).AddressList.FirstOrDefault(x => x.AddressFamily == AddressFamily.InterNetwork);
+        var ips = await Dns.GetHostAddressesAsync(hostName);
+
+        return View(new IndexModel() { HostName = hostName, IpAddress = ip.ToString() });
     }
 
     public IActionResult Privacy()
