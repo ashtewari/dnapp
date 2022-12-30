@@ -1,0 +1,4 @@
+{
+    "/api/49160/donuts": "http://host.docker.internal:49160/donuts",
+    "/api/59160/donuts": "http://host.docker.internal:59160/donuts"
+}

@@ -29,7 +29,7 @@ public class HomeController : Controller
     public async Task<IActionResult> Colors()
     {        
         using var client = new HttpClient();
-        client.BaseAddress = new Uri("http://localhost:1080/");
+        client.BaseAddress = new Uri("http://172.17.0.1:1080/");
         client.DefaultRequestHeaders.Clear();
         client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         var response = await client.GetAsync("api/colors"); 
