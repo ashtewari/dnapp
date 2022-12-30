@@ -15,8 +15,7 @@
       "applicationUrl": "http://localhost:5134",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "API_HOST": "172.17.0.1",
-        "API_PORT": "1080"        
+        "API_BASEURL": "http://172.17.0.1:1080/api/"       
       }
     },
     "https": {
@@ -26,8 +25,7 @@
       "applicationUrl": "https://localhost:7256;http://localhost:5134",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "API_HOST": "172.17.0.1",
-        "API_PORT": "1080"        
+        "API_BASEURL": "http://172.17.0.1:1080/api/"     
       }
     },
     "IIS Express": {
@@ -35,8 +33,7 @@
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "API_HOST": "172.17.0.1",
-        "API_PORT": "1080"
+        "API_BASEURL": "http://172.17.0.1:1080/api/"
       }
     }
   }

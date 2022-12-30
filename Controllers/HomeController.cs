@@ -30,13 +30,14 @@ public class HomeController : Controller
 
     public async Task<IActionResult> Colors()
     {   
-        var apiHost = _config.GetValue<string>("API_HOST");     
-        var apiPort = _config.GetValue<string>("API_PORT");
+        var apiUrl = _config.GetValue<string>("API_BASEURL");  
+        System.Console.WriteLine($"API_BASEURL={apiUrl}");
+
         using var client = new HttpClient();
-        client.BaseAddress = new Uri($"http://{apiHost}:{apiPort}/");
+        client.BaseAddress = new Uri($"{apiUrl}");
         client.DefaultRequestHeaders.Clear();
         client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-        var response = await client.GetAsync("api/colors"); 
+        var response = await client.GetAsync("colors"); 
         response.EnsureSuccessStatusCode(); 
         var content = await response.Content.ReadAsStringAsync(); 
         var options = new JsonSerializerOptions
