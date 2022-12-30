@@ -1,0 +1,11 @@
+﻿@{
+    ViewData["Title"] = "Colors";
+}
+<h1>@ViewData["Title"]</h1>
+
+<ul>
+@foreach (var item in @Model)
+{
+    <li>@item.Color</li>
+}
+</ul>
