@@ -18,4 +18,5 @@ docker run -d --name mockserver --rm -p 1080:1080 -v ${PWD}/tests:/tests --env M
 * http://localhost:8082
 * http://localhost:8082/Home/Colors 
     > API_BASEURL=http://172.17.0.1:1080/api/ returns from mockserver
+    > API_BASEURL=http://172.17.0.1:49160/ returns from jonserver directly
     > API_BASEURL=http://172.17.0.1:1080/49160/ returns from jsonserver (forwarded by mockserver)
