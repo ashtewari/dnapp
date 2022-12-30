@@ -2,7 +2,7 @@
 
 # Run jsonserver
 * docker build -t jsonserver -f Dockerfile .
-* docker run -d --rm --name jsonserver4 -p 49160:8080 jsonserver
+* docker run -d --rm --name jsonserver -p 49160:8080 jsonserver
 * http://localhost:49160/users
 
 # Run Mock-Server
