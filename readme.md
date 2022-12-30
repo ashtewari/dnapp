@@ -14,5 +14,6 @@ docker run -d --name mockserver --rm -p 1080:1080 -v ${PWD}/tests:/tests --env M
 
 # Run asp.net mvc application
 docker build -t dnapp .
-docker run -d --rm -p 8082:80 --name dnapp dnapp
+docker run -d --rm -p 8082:80 -e API_HOST=172.17.0.1 -e API_PORT=1080 --name dnapp dnapp
 http://localhost:8082
+http://localhost:8082/Home/Colors

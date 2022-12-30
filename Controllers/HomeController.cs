@@ -11,9 +11,11 @@ namespace dnapp.Controllers;
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+        private readonly IConfiguration _config;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger, IConfiguration config)
     {
+        _config = config;
         _logger = logger;
     }
 
@@ -27,9 +29,11 @@ public class HomeController : Controller
     }
 
     public async Task<IActionResult> Colors()
-    {        
+    {   
+        var apiHost = _config.GetValue<string>("API_HOST");     
+        var apiPort = _config.GetValue<string>("API_PORT");
         using var client = new HttpClient();
-        client.BaseAddress = new Uri("http://172.17.0.1:1080/");
+        client.BaseAddress = new Uri($"http://{apiHost}:{apiPort}/");
         client.DefaultRequestHeaders.Clear();
         client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         var response = await client.GetAsync("api/colors"); 
