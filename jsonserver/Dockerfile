@@ -7,9 +7,6 @@ RUN apt-get update \
 
 RUN npm install -g json-server
 
-WORKDIR /tmp
-COPY /*.json ./
-
-ENTRYPOINT ["json-server", "--port", "8080", "--host", "0.0.0.0", "--routes", "/tmp/routes.json"]
+ENTRYPOINT ["json-server", "--watch", "--port", "8080", "--host", "0.0.0.0", "--routes", "/tmp/routes.json"]
 
 CMD ["/tmp/database.json"]
